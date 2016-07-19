@@ -1,0 +1,22 @@
+resources:
+  - name: dv-image-job2
+    type: image
+    integration: ship-dock12
+    pointer:
+      sourceName: "library/nginx"
+    seed:
+      versionName: latest
+
+  - name: dv-opts-job2
+    type: dockerOptions
+    version:
+      memory: 64
+      cpuShares: 256
+      portMappings:
+        - "80:80"
+
+  - name: dv-params-job2
+    type: params
+    version:
+      params:
+        MONGO_API_URL: "localhost:28017"
